@@ -30,16 +30,13 @@ export default class LoginPage extends BasePage {
         this.emailInput = this.page.getByPlaceholder('Enter your email');
         this.passwordInput = this.page.getByPlaceholder('Enter password');
         
-        // Buttons - dùng getByRole cho buttons
         this.loginButton = this.page.getByRole('button', { name: 'Login' });
         this.eyeButton = this.page.locator('button', { has: this.page.locator('svg.lucide-eye, svg.lucide-eye-off') });
         
-        // Checkbox và Links - dùng getByRole
         this.rememberMeCheckbox = this.page.getByRole('checkbox', { name: 'Remember me' });
         this.forgotPasswordLink = this.page.getByRole('link', { name: 'Forgot password?' });
-        this.signupLink = this.page.getByRole('link', { name: 'Sign up' });
+        this.signupLink = this.page.getByRole('link', { name: 'Register now' });
         
-        // Error/Status messages - dùng getByText
         this.errorMessage = this.page.getByText('Invalid email or password');
         this.incorrectEmailMessage = this.page.getByText('Invalid email');
         this.textForgotPassword = this.page.getByText('Forgot Password?');

@@ -50,3 +50,14 @@ testViewer(
     await expect(delyTour.loginPage.textSignup).toBeVisible();
   },
 );
+
+testViewer.only(
+  'Register successfully', 
+  { annotation: [{ type: 'id', description: 'T0007' }] },
+  async ({ delyTour }) => {
+    await delyTour.homePage.clickLoginButton();
+    await delyTour.loginPage.clickSignupLink();
+    await delyTour.registerPage.register();
+    await expect(delyTour.homePage.profileButton).toBeVisible();
+  },
+);
