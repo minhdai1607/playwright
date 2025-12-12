@@ -23,6 +23,8 @@ export default class RegisterPage extends BasePage {
     public readonly bankAccountInput: Locator;
     public readonly bankNameInput: Locator;
     public readonly nextButton: Locator;
+    public readonly incorrectEmailMessage: Locator;
+    public readonly incorrectPasswordMessage: Locator;
     constructor(
         public readonly page: Page,
         public readonly browser: BrowserContext,
@@ -43,6 +45,8 @@ export default class RegisterPage extends BasePage {
         this.bankNameInput = this.page.getByPlaceholder('Example: Vietcombank - Hanoi Branch');
         this.registerButton = this.page.getByRole('button', { name: 'Register' });
         this.nextButton = this.page.getByRole('button', { name: 'Next' });
+        this.incorrectEmailMessage = this.page.getByText('Email không đúng định dạng. Vui lòng nhập email hợp lệ.');
+        this.incorrectPasswordMessage = this.page.getByText('Passwords do not match');
     }
 
     async register(data?: RegisterData): Promise<void> {
@@ -81,6 +85,23 @@ export default class RegisterPage extends BasePage {
             await this.bankAccountInput.fill(data.bankAccount);
             await this.bankNameInput.fill('Vietcombank');
             await this.registerButton.click();
+        });
+    }
+    async registerWithIncorrectMail(): Promise<void> {
+        await testViewer.step('Register with incorrect mail', async () => {
+            await this.title.waitFor({ state: 'visible' });
+            await this.emailInput.fill('incorrectmail.com');
+            await this.passwordInput.fill('password');
+            await this.confirmPasswordInput.fill('password');
+            await this.nextButton.click();
+        });
+    }
+    async registerWithIncorrectConfirmPassword(): Promise<void> {
+        await testViewer.step('Register with incorrect confirm password', async () => {
+            await this.emailInput.fill('incorrectmail@gm.com');
+            await this.passwordInput.fill('password');
+            await this.confirmPasswordInput.fill('password1');
+            await this.nextButton.click();
         });
     }
 }
