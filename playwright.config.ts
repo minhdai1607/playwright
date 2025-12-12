@@ -12,12 +12,6 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on-first-retry',
-    launchOptions: {
-      args: [
-        '--disable-translate',
-        '--disable-features=TranslateUI',
-      ],
-    },
   },
   expect: {
     timeout: 15000, //apply to all tests
