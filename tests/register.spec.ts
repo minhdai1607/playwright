@@ -11,7 +11,7 @@ testViewer(
       await expect(delyTour.homePage.profileButton).toBeVisible();
     },
   );
-testViewer.only(
+testViewer(
     'Register with incorrect mail', 
     { annotation: [{ type: 'id', description: 'T0008' }] },
     async ({ delyTour }) => {
@@ -21,7 +21,7 @@ testViewer.only(
       await expect(delyTour.registerPage.incorrectEmailMessage).toBeVisible();
     },
 );
-testViewer.only(
+testViewer(
     'Register with incorrect confirm password', 
     { annotation: [{ type: 'id', description: 'T0009' }] },
     async ({ delyTour }) => {

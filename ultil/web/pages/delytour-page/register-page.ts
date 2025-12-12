@@ -35,7 +35,6 @@ export default class RegisterPage extends BasePage {
         this.emailInput = this.page.getByPlaceholder('Enter your email');
         this.passwordInput = this.page.getByTestId('password');
         this.confirmPasswordInput = this.page.getByTestId('confirmPassword');
-        this.registerButton = this.page.getByRole('button', { name: 'Next' });
         this.fullNameInput = this.page.getByPlaceholder('Enter full name');
         this.phoneNumberInput = this.page.getByPlaceholder('Enter phone number');
         this.addressInput = this.page.getByPlaceholder('House number, street, ward, district...');
