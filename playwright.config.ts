@@ -6,7 +6,7 @@ export default defineConfig({
   testDir: './tests',
   use: {
     headless: true,
-    viewport: { width: 1350, height: 800 },
+    viewport: { width: 1500, height: 1000 },
     ignoreHTTPSErrors: true,
     actionTimeout: 30000, //apply to all tests
     screenshot: 'only-on-failure',

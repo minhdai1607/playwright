@@ -15,7 +15,7 @@ export default class HomePage extends BasePage {
     ) {
         super(page, browser, testInfo, testUrls.TEST_URLS.delyTour);
         this.title = this.page.locator('h1');
-        this.profileButton = this.page.getByRole('link', { name: 'Hello' });
+        this.profileButton = this.page.getByRole('button', { name: /Hello/ });
         this.loginButton = this.page.getByRole('link', { name: 'Login' });
         this.languageButton = this.page.locator('button', { has: this.page.locator('svg.lucide-languages') }).first();
     }
