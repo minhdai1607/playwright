@@ -1,7 +1,7 @@
-import { testViewer } from '@ultil/fixtures/delytour';
+import { testViewerEn } from '@ultil/fixtures/delytour';
 import { expect } from '@playwright/test';
 
-testViewer(
+testViewerEn(
   'Login successfully', 
   { annotation: [{ type: 'id', description: 'T0001' }] },
   async ({ delyTour }) => {
@@ -11,7 +11,7 @@ testViewer(
   },
 );
 
-testViewer(
+testViewerEn(
   'Login with incorrect mail', 
   { annotation: [{ type: 'id', description: 'T0003' }] },
   async ({ delyTour }) => {
@@ -21,7 +21,7 @@ testViewer(
   },
 );
 
-testViewer(
+testViewerEn(
   'Toggle password visibility', 
   { annotation: [{ type: 'id', description: 'T0004' }] },
   async ({ delyTour }) => {
@@ -31,7 +31,7 @@ testViewer(
   },
 );
 
-testViewer(
+testViewerEn(
   'Click forgot password link', 
   { annotation: [{ type: 'id', description: 'T0005' }] },
   async ({ delyTour }) => {
@@ -41,7 +41,7 @@ testViewer(
   },
 );
 
-testViewer(
+testViewerEn(
   'Click signup link', 
   { annotation: [{ type: 'id', description: 'T0006' }] },
   async ({ delyTour }) => {

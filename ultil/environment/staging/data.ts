@@ -1,6 +1,8 @@
+
 const TEST_URLS = {
     delyTour: 'https://delytour.netlify.app/',
     wallet: 'https://checkwallet.netlify.app/',
+    OkxPortfolioPage: 'https://web3.okx.com/',
 };
 const mailinatorUsers = [
     {

@@ -27,15 +27,15 @@ export default defineConfig({
     },
     {
       name: 'WebKit',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop WebKit'] },
     },
-    {
-        name: 'Pixel_5',
-        use: { ...devices['Pixel 5'] },
-    },
-    {
-        name: 'iPhone_13',
-        use: { ...devices['iPhone 13'] },
-    },
+    // {
+    //     name: 'Pixel_5',
+    //     use: { ...devices['Pixel 5'] },
+    // },
+    // {
+    //     name: 'iPhone_13',
+    //     use: { ...devices['iPhone 13'] },
+    // },
   ]
 });
