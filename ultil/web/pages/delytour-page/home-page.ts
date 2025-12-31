@@ -1,6 +1,6 @@
 import { BrowserContext, Locator, Page, TestInfo } from '@playwright/test';
 import BasePage from '@ultil/web/base.ts';
-import testUrls from '@ultil/environment/staging/data.ts';
+import testUrls from '@ultil/environment/config';
 import { testViewerEn } from '@ultil/fixtures/delytour';
 
 export default class HomePage extends BasePage {
@@ -8,6 +8,7 @@ export default class HomePage extends BasePage {
     public readonly profileButton: Locator;
     public readonly loginButton: Locator;
     public readonly languageButton: Locator;
+    public readonly aboutLink: Locator;
     constructor(
         public readonly page: Page,
         public readonly browser: BrowserContext,
@@ -18,6 +19,12 @@ export default class HomePage extends BasePage {
         this.profileButton = this.page.getByRole('button', { name: /Hello/ });
         this.loginButton = this.page.getByRole('link', { name: 'Login' });
         this.languageButton = this.page.locator('button', { has: this.page.locator('svg.lucide-languages') }).first();
+        this.aboutLink = this.page.getByRole('link', { name: 'About' }).first();
+    }
+    async clickAboutLink(): Promise<void> {
+        await testViewerEn.step('Click about menu', async () => {
+            await this.aboutLink.click();
+        });
     }
     async clickLanguageButton(): Promise<void> {
         await testViewerEn.step('Click language button on home page', async () => {

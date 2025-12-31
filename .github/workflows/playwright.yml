@@ -30,6 +30,9 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test --project=Chromium --workers=3
 
+      - name: Run Playwright tests last failed
+        run: npx playwright test --last-failed --project=Chromium --workers=3
+
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

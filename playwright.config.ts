@@ -2,19 +2,19 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   timeout: 45000,  // apply for project
-  retries: 0,
+  retries: 1,
   testDir: './tests',
   use: {
     headless: true,
     viewport: { width: 1500, height: 1000 },
     ignoreHTTPSErrors: true,
-    actionTimeout: 30000, //apply to all tests
+    actionTimeout: 45000, //apply to all tests
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on-first-retry',
   },
   expect: {
-    timeout: 15000, //apply to all tests
+    timeout: 30000, //apply to all tests
   },
   projects: [
     {

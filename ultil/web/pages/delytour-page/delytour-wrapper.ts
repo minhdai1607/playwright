@@ -8,11 +8,13 @@ import WrapperBase from '../../wrapper.ts';
 import LoginPage from './login-page.ts';
 import AdminLoginPage from './admin-login-page.ts';
 import RegisterPage from './register-page.ts';
+import AboutPage from './about-page.ts';
 export default class DelyTourWrapper extends WrapperBase {
     public readonly homePage: HomePage;
     public readonly loginPage: LoginPage;
     public readonly registerPage: RegisterPage;
     public readonly adminLoginPage: AdminLoginPage;
+    public readonly aboutPage: AboutPage;
     constructor(
         page: Page,
         public readonly browser: BrowserContext,
@@ -23,5 +25,6 @@ export default class DelyTourWrapper extends WrapperBase {
         this.loginPage = new LoginPage(page, browser, testInfo);
         this.registerPage = new RegisterPage(page, browser, testInfo);
         this.adminLoginPage = new AdminLoginPage(page, browser, testInfo);
+        this.aboutPage = new AboutPage(page, browser, testInfo);
     }
 }

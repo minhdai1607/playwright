@@ -1,6 +1,6 @@
 import { BrowserContext, Locator, Page, TestInfo } from '@playwright/test';
 import BasePage from '@ultil/web/base.ts';
-import testUrls from '@ultil/environment/staging/data.ts';
+import testUrls from '@ultil/environment/config';
 import { testViewerEn } from '@ultil/fixtures/delytour';
 export default class LoginPage extends BasePage {
     public readonly title: Locator;
