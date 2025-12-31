@@ -1,5 +1,6 @@
 import { randomBytes } from 'crypto';
-
+import fs from 'fs';
+import path from 'path';
 export function generateTestEmail(opts?: {
   prefix?: string;
   domain?: string;
@@ -76,4 +77,21 @@ export function generateName(opts?: { locale?: 'en' | 'vi'; withLastName?: boole
   const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
 
   return withLastName ? `${firstName} ${lastName}` : firstName;
+}
+
+
+export function readWalletAddresses(filename:string): string[] {
+  const filePath = path.resolve(
+    __dirname,
+    '../document/'+filename+'.txt'
+  );
+
+  const content = fs.readFileSync(filePath, 'utf-8');
+
+  return content
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean)
+    .map(line => line.split(' - ')[1]?.trim())
+    .filter(Boolean);
 }

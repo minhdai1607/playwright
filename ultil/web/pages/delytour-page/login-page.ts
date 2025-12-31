@@ -1,7 +1,7 @@
 import { BrowserContext, Locator, Page, TestInfo } from '@playwright/test';
 import BasePage from '@ultil/web/base.ts';
 import testUrls from '@ultil/environment/staging/data.ts';
-import { testViewer } from '@ultil/fixtures/delytour';
+import { testViewerEn } from '@ultil/fixtures/delytour';
 export default class LoginPage extends BasePage {
     public readonly title: Locator;
     public readonly emailInput: Locator;
@@ -44,7 +44,7 @@ export default class LoginPage extends BasePage {
 
     }
     async login(): Promise<void> {
-        await testViewer.step('Login', async () => {
+        await testViewerEn.step('Login', async () => {
             await this.title.waitFor({ state: 'visible' });
             await this.emailInput.fill(testUrls.mailinatorUsers[1].email);
             await this.passwordInput.fill(testUrls.mailinatorUsers[1].password);
@@ -52,7 +52,7 @@ export default class LoginPage extends BasePage {
         });
     }
     async loginWithIncorrectAccount(): Promise<void> {
-        await testViewer.step('Login with incorrect account', async () => {
+        await testViewerEn.step('Login with incorrect account', async () => {
             await this.title.waitFor({ state: 'visible' });
             await this.emailInput.fill(testUrls.mailinatorUsers[3].email);
             await this.passwordInput.fill(testUrls.mailinatorUsers[3].password);
@@ -60,7 +60,7 @@ export default class LoginPage extends BasePage {
         });
     }
     async loginWithIncorrectMail(): Promise<void> {
-        await testViewer.step('Login with incorrect mailinator account', async () => {
+        await testViewerEn.step('Login with incorrect mailinator account', async () => {
             await this.title.waitFor({ state: 'visible' });
             await this.emailInput.fill(testUrls.mailinatorUsers[0].email);
             await this.passwordInput.fill(testUrls.mailinatorUsers[0].password);
@@ -68,17 +68,17 @@ export default class LoginPage extends BasePage {
         });
     }
     async togglePasswordVisibility(): Promise<void> {
-        await testViewer.step('Toggle password visibility', async () => {
+        await testViewerEn.step('Toggle password visibility', async () => {
             await this.eyeButton.click();
         });
     }
     async clickForgotPasswordLink(): Promise<void> {
-        await testViewer.step('Click forgot password link', async () => {
+        await testViewerEn.step('Click forgot password link', async () => {
             await this.forgotPasswordLink.click();
         });
     }
     async clickSignupLink(): Promise<void> {
-        await testViewer.step('Click signup link', async () => {
+        await testViewerEn.step('Click signup link', async () => {
             await this.signupLink.click();
         });
     }

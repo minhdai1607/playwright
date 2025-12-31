@@ -1,7 +1,7 @@
-import { testViewer } from '@ultil/fixtures/delytour';
+import { testViewerEn } from '@ultil/fixtures/delytour';
 import { expect } from '@playwright/test';
 
-testViewer(
+testViewerEn(
     'Register successfully', 
     { annotation: [{ type: 'id', description: 'T0007' }] },
     async ({ delyTour }) => {
@@ -11,7 +11,7 @@ testViewer(
       await expect(delyTour.homePage.profileButton).toBeVisible();
     },
   );
-testViewer(
+testViewerEn(
     'Register with incorrect mail', 
     { annotation: [{ type: 'id', description: 'T0008' }] },
     async ({ delyTour }) => {
@@ -21,7 +21,7 @@ testViewer(
       await expect(delyTour.registerPage.incorrectEmailMessage).toBeVisible();
     },
 );
-testViewer(
+testViewerEn(
     'Register with incorrect confirm password', 
     { annotation: [{ type: 'id', description: 'T0009' }] },
     async ({ delyTour }) => {
