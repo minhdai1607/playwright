@@ -50,14 +50,14 @@ Runs tests that match the given name/pattern.
 
 Useful for debugging or rerunning a single test.
 
-## 7 Rerun failed case
+## Rerun failed case
 npx playwright test --last-failed
 npx playwright test tests/okx/check-balance.spec.ts --last-failed
 
-## 8 Run with headed and slow
+## Run with headed and slow
 npx playwright test --last-failed --headed --slow-mo=500
 
-## 9 Run on different environment
+## Run on different environment
 cross-env TEST_ENV=staging playwright test --project=chromium --headed --workers=1
 
 ## Other solutions:
