@@ -12,7 +12,7 @@ export default abstract class BasePage {
         this.baseUrl = baseUrl;
         selectors.setTestIdAttribute('id');
     }
-    async accessURL(url: string, timeout: number = 30000): Promise<void> {
+    async accessURL(url: string, timeout: number = 45000): Promise<void> {
         await test.step(`Access URL: ${url}`, async () => {
             try {
                 await this.page.goto(url, {
@@ -21,10 +21,10 @@ export default abstract class BasePage {
                 });
                 await this.page
                     .waitForLoadState('networkidle', {
-                        timeout: Math.min(10000, timeout / 3),
+                        timeout: Math.min(15000, timeout / 3),
                     })
                     .catch(() => {
-                        const networkIdleTimeout = Math.min(10000, timeout / 3);
+                        const networkIdleTimeout = Math.min(15000, timeout / 3);
                         console.log(
                             `Network idle timeout (${networkIdleTimeout}ms) - continuing anyway`,
                         );

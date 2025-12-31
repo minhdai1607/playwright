@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
+    "test:staging": "cross-env TEST_ENV=staging playwright test --project=chromium --headed --workers=1",
+    "test:prod": "cross-env TEST_ENV=production playwright test --project=chromium --headed --workers=1",
     "test:headed": "npx playwright test --headed",
     "test:chrome": "npx playwright test --project=chromium",
     "test:firefox:ui": "npx playwright test --project=firefox --headed",
@@ -19,6 +21,7 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/node": "^25.0.0"
+    "@types/node": "^25.0.0",
+    "cross-env": "^10.1.0"
   }
 }
